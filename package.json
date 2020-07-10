@@ -1,0 +1,15 @@
+{
+  "name": "autopres-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "kralmajster",
+  "license": "ISC",
+  "scripts": {
+    "deploy": "sls deploy"
+  },
+  "dependencies": {
+    "serverless": "^1.74.1",
+    "serverless-python-requirements": "^5.1.0"
+  }
+}
