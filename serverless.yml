@@ -13,8 +13,6 @@
 
 service: autopres-tool
 # app and org for use with dashboard.serverless.com
-app: ua-suite
-org: superscale
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
