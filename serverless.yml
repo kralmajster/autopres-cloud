@@ -18,6 +18,12 @@ service: autopres-tool
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    slim: true
+
 provider:
   name: aws
   runtime: python3.8
@@ -64,10 +70,10 @@ functions:
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-#    events:
-#      - http:
-#          path: users/create
-#          method: get
+   events:
+     - http:
+         path: createpres
+         method: post
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)

@@ -1,5 +1,5 @@
 from __future__ import print_function
-from botocore.vendored import requests
+import requests
 import datetime
 import os
 import time
