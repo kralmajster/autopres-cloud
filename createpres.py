@@ -19,41 +19,13 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 
 
-def hello(event, context):
+def handler(event, context):
     print(event)
-    input_form = event['body']
-    if input_form is not None:
-        keyword = str(input_form['text']) + '.exportcfg'
-        command = str(input_form['command']).strip('/')
-        response_url = str(input_form['response_url'])
-        user_name = str(input_form['user_name'])
-        channel_name = str(input_form['channel_name'])
-
-    params = {
-        "keyword": keyword,
-        "command": command,
-        "response_url": response_url,
-        "user_name": user_name,
-        "channel_name": channel_name
-    }
-
-    if command == "createpreshelp":
-        return {
-            "statusCode": 200,
-            "body": "Auto Presentation manual link: https://docs.google.com/document/d/1nbNpVm6SEU_ogtY-3HtoIYxgX5DudDdzJK6Q19wpaaE/edit?usp=sharing"
-        }
-
     loop = asyncio.get_event_loop()
     fut = loop.create_future()
     loop.create_task(
-        create_pres(fut, params)
+        create_pres(fut, event)
     )
-
-    return {
-        "statusCode": 200,
-        "body": "Processing /" + command + " command for " + keyword +
-        " config. It can take up to 1 minute."
-    }
 
 
 async def create_pres(fut, input_form):
