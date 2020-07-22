@@ -6,7 +6,7 @@ custom:
   pythonRequirements:
     dockerizePip: false
   globalConstants:
-    LAMBDA_ARN_PREFIX: arn:aws:lambda:${self:provider.region}:${self:provider.accountId}:function:${self:service}-${self:provider.stage}
+    LAMBDA_ARN_PREFIX: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${self:provider.stage}
     CREATEPRES_LAMBDA_ARN: ${self:custom.globalConstants.LAMBDA_ARN_PREFIX}-createpres
 
 provider:
