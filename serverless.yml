@@ -18,6 +18,9 @@ service: autopres-tool
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+plugins:
+  - serverless-python-requirements
+
 custom:
   pythonRequirements:
     dockerizePip: true
