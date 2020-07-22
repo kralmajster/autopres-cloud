@@ -20,6 +20,7 @@ from google.oauth2 import service_account
 
 
 def hello(event, context):
+    print(event)
     input_form = json.loads(event['body'])
     if input_form is not None:
         keyword = str(input_form['text']) + '.exportcfg'
