@@ -6,7 +6,9 @@
   "author": "kralmajster",
   "license": "ISC",
   "scripts": {
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "invoke": "sls invoke local --function hello",
+    "list": "sls deploy list"
   },
   "dependencies": {
     "serverless": "^1.74.1",

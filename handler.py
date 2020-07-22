@@ -1,5 +1,5 @@
 from __future__ import print_function
-import requests
+# import requests
 import datetime
 import os
 import time
@@ -7,6 +7,7 @@ import logging
 import asyncio
 import platform
 import json
+import aiohttp
 from config import *
 from objects_definitions import *
 from pprint import pprint
@@ -19,7 +20,7 @@ from google.oauth2 import service_account
 
 
 def hello(event, context):
-    input_form = json.loads(event.body)
+    input_form = json.loads(event['body'])
     if input_form is not None:
         keyword = str(input_form['text']) + '.exportcfg'
         command = str(input_form['command']).strip('/')
