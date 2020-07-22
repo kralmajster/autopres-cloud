@@ -23,9 +23,7 @@ plugins:
 
 custom:
   pythonRequirements:
-    dockerizePip: true
-    zip: true
-    slim: true
+    dockerizePip: false
 
 provider:
   name: aws
