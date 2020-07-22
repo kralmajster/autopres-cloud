@@ -15,7 +15,6 @@ provider:
   region: eu-west-1
   stage: dev
 
-
 functions:
   gateway:
     handler: gateway.handler
@@ -24,8 +23,8 @@ functions:
       - http:
           path: createpres
           method: post
-   environment:
-     CREATEPRES_LAMBDA_ARN: ${self:custom.globalConstants.CREATEPRES_LAMBDA_ARN}
+    environment:
+      CREATEPRES_LAMBDA_ARN: ${self:custom.globalConstants.CREATEPRES_LAMBDA_ARN}
   createpres:
     handler: createpres.handler
     timeout: 900
