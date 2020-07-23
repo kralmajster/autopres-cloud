@@ -7,7 +7,6 @@ import os
 lambda_client = boto3.client('lambda')
 
 
-
 def handler(event, context):
     print(event)
     input_form = event['body']
@@ -17,6 +16,9 @@ def handler(event, context):
         response_url = str(input_form['response_url'])
         user_name = str(input_form['user_name'])
         channel_name = str(input_form['channel_name'])
+
+    if command == "createprescloud":
+        command = "createpres"
 
     params = {
         "keyword": keyword,
@@ -36,7 +38,6 @@ def handler(event, context):
                                            InvokeArgs=json.dumps(params)
                                            )
     print(invoke_response)
-
 
     return {
         "statusCode": 200,
