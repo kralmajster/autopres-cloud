@@ -900,5 +900,5 @@ def find_ix_bq(in_list, val, row_pos):
 def slack_request(text, response_url):
     data = GlobalConfig.SLACK_REQUEST.copy()
     data['text'] = text
-    urllib.request.urlopen(urllib.request.Request(url=response_url,
-                                                  headers=GlobalConfig.SLACK_HEADERS,  auth=auth, method='POST', data=parse.urlencode(data).encode()))
+    request.urlopen(request.Request(url=response_url,
+                                    headers=GlobalConfig.SLACK_HEADERS,  auth=auth, method='POST', data=parse.urlencode(data).encode()))
