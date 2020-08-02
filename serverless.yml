@@ -2,6 +2,7 @@ service: autopres-tool
 plugins:
   - serverless-python-requirements
   - serverless-pseudo-parameters
+  - serverless-iam-roles-per-function
 
 custom:
   pythonRequirements:
@@ -28,6 +29,11 @@ functions:
           method: post
     environment:
       CREATEPRES_LAMBDA_ARN: ${self:custom.globalConstants.CREATEPRES_LAMBDA_ARN}
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - lambda:InvokeFunction
+        Resource: "*"
   createpres:
     handler: createpres.handler
     timeout: 900
