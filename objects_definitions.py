@@ -901,4 +901,4 @@ def slack_request(text, response_url):
     data = GlobalConfig.SLACK_REQUEST.copy()
     data['text'] = text
     request.urlopen(request.Request(url=response_url,
-                                    headers=GlobalConfig.SLACK_HEADERS,  auth=auth, method='POST', data=parse.urlencode(data).encode()))
+                                    headers=GlobalConfig.SLACK_HEADERS, method='POST', data=parse.urlencode(data).encode()))
