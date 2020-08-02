@@ -35,7 +35,7 @@ def handler(event, context):
             "body": "Auto Presentation manual link: https://docs.google.com/document/d/1nbNpVm6SEU_ogtY-3HtoIYxgX5DudDdzJK6Q19wpaaE/edit?usp=sharing"
         }
 
-    invoke_response = lambda_client.invoke(FunctionName=os.environ['CREATEPRES_LAMBDA_ARN'],
+    invoke_response = lambda_client.invoke_async(FunctionName=os.environ['CREATEPRES_LAMBDA_ARN'],
                                            InvokeArgs=json.dumps(params)
                                            )
     print(invoke_response)
