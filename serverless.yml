@@ -30,11 +30,6 @@ functions:
   createpres:
     handler: createpres.handler
     timeout: 900
-    events:
-      - http:
-          path: createpres
-          method: post
-
 # you can add CloudFormation resource templates here
 #resources:
 #  Resources:
