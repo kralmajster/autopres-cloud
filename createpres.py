@@ -20,14 +20,17 @@ def handler(event, context):
     print(event)
     loop = asyncio.get_event_loop()
     fut = loop.create_future()
-    loop.create_task(
-        create_pres(fut, event)
-    )
+    # loop.create_task(
+    #     create_pres(fut, event)
+    # )
+    print('muhehehehe')
+
+    return loop.run_until_complete(create_pres(fut, event))
 
 
 async def create_pres(fut, input_form):
     service_account_creds = {
-		'type': 'service_account',
+        'type': 'service_account',
         'project_id': 'exponeaapiexport',
         'private_key_id': 'c8a61ccb0acfb0a1e27b7202da940f7775944610',
         'private_key': '-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/H904gE0RPoNV\nxvLDSjZVc4gcQqICl5xZo4Z52IzjMS1PbPf65HlfmAPrKFS7sKTgaFYS84j++25b\nKa6il0Yokv9LkGao9g3z5bkbMfguLwSgcdJsLM6O8TdTwYM0NKAMkWcdwx07BNt6\nie1x5vyRpTU22L7T3FSS5ZM7mcXVhyvT1AtdazfgreL9IHEyVWcMrf5uiBUKDTSl\nCU4ul4lspJagDjpaSEdvZIc/H3p7szosoSFMh+HQjKgvUXsNdBD7vlNt3jhVVNVU\nknNPJjDY42MxcVS25iBVm6f2W4gQ2HJujcCaKfbiOD5aX5oogc/Y4MWzdyJx7ygL\nFVFBcDB1AgMBAAECggEAA4e4o9MG2WMwtNRkZoQH5eMo5/C5IlgfjK5PDRAZZhbh\n8d4e5HT04vWhWOYZTpAwM27p7BaweJk3TBrEfX9SzewNKB2mL8e/sToUhbKSFXRL\n3xTLILFhLVW6QmNII543OJQ09eFFOHJaBXTnvFtaXexRw84UFEC1FTOFWSv5cfyx\ncImWStjBFz8Q/wZDn96Z0WK/pLqlWGQnRy8oyToODhiTMWw/cCtft8UOtrp/ngqB\nxU4+xq00bvvQUTSuo1mTrUHywVkj+MOpJWKnnFm1jSiMr71Mb5EWu/HiiP+64LGX\nWAuHk9KvMWrZ/r9cpI8kL/WFmcrYAeOhI3WcDyOugQKBgQD59K9Bms0WgkpZPGKA\nivgt/N83M6L6HiL8zJmYKxSeehuZPDQe/9RjV+edAS5+JGBFjoNKlqDHw6PojDvD\nnDgYF5z12ajPrZOKByt4Dc2x4F7XQiMu36avgnAb+RKlr68+4DSG9rkzjM7iVZCB\npbVJOAIeqCRdDEkXWSHgOcNcNQKBgQDDvv4fbL7sZGIBpPuOSTTlUT9i/e07RURG\nJ6ZitqvHtB7Dp9sxk5fC28qjcMIRsUih960Z33aR0Mu2ONCYPed6q75jiyMMQeXm\nTz30YYd3R5dLsElaNhe5Wzvw5Cr8TWTU439EI1UOLVN9Tm9sRlxIOD9Jm6wPJ8LS\nLuKE21GLQQKBgQCoMSiYyZSFN+jVgRd7DYgQUd7Vo05gZVT/rKERzrNSLDJT+znL\nPjRpIKZ+dGQXh1yskUfxMchAg3nQqkQwzPbF52W73NmF3XOw5kAuyYMG1UacLCnG\nicH8yZWsjP4qNTyD35QY2P4oHPC9Rfw18Q46lZB/ln7ZicHJDzYHTncRnQKBgHJZ\nh8C52UrlVW+afq3fTDxOW1Yr+sMuMrU9AnEWP4GZUoN/8oeirfxSQ614+JY3V7Pu\nqTu9FFoYfHjF9e2J9EjwPXePV3kYogIJ9qplsypWMycvI5rEkNViW8DcudPMLoRD\nJhya+1wd1HEWOfcpn009NpN8kmYEF0aLxx5PtPJBAoGAGtykDiUNTEvWTmoV5RnJ\nrbl6R4AmbPwMqDylGrHgYwR6gnNDGMwa9GPL7XvxWdv+dId22pHf9HjNusx2MlnL\nq3ClutGRLh7o/WUZ5ZSiiNyWVWmC2OIOB9AvOWPElrEeLFdhKS05z0NqwpUTc7M/\nKP9hJRZwQZxvuscYLvHj7a4=\n-----END PRIVATE KEY-----\n',
@@ -37,9 +40,7 @@ async def create_pres(fut, input_form):
         'token_uri': 'https://oauth2.googleapis.com/token',
         'auth_provider_x509_cert_url': 'https://www.googleapis.com/oauth2/v1/certs',
         'client_x509_cert_url': 'https://www.googleapis.com/robot/v1/metadata/x509/exponeaapiexport%40appspot.gserviceaccount.com'
-	}
-
-
+    }
 
     try:
         fut.set_result("ok")
