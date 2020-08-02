@@ -1,6 +1,7 @@
 service: autopres-tool
 plugins:
   - serverless-python-requirements
+  - serverless-pseudo-parameters
 
 custom:
   pythonRequirements:
