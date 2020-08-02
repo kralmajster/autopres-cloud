@@ -1,4 +1,3 @@
-import requests
 import json
 import datetime
 import calendar
@@ -12,7 +11,8 @@ import time
 import platform
 from config import *
 from pprint import pprint
-from google.cloud import bigquery
+from urllib import request, parse
+
 
 if platform.system() != "Windows":
     os.environ['TZ'] = GlobalConfig.TIMEZONE
@@ -248,11 +248,11 @@ class Analysis(object):
                 async with session.post(self.proj_params.URL + self.exponea_type, json=body, auth=auth, headers=GlobalConfig.HEADERS, timeout=500) as resp:
                     return await resp.json()
         else:
-            print("sync")
-            auth = self.proj_params.AUTH_CODE_SYNC
-            response = requests.post(self.proj_params.URL + self.exponea_type,
-                                     headers=GlobalConfig.HEADERS, json=body, auth=auth)
-            return json.loads(response.text)
+            # print("sync")
+            # auth = self.proj_params.AUTH_CODE_SYNC
+            # response = urllib.request.urlopen(urllib.request.Request(url=self.proj_params.URL + self.exponea_type,
+            #                          headers=GlobalConfig.HEADERS,  auth=auth, method='POST', data=parse.urlencode(body).encode()))
+            # return json.loads(response.text)
 
     async def get_basic_metrics_timestamp(self, date):
         tm = datetime.datetime.fromtimestamp(
@@ -900,5 +900,5 @@ def find_ix_bq(in_list, val, row_pos):
 def slack_request(text, response_url):
     data = GlobalConfig.SLACK_REQUEST.copy()
     data['text'] = text
-    requests.request("POST", response_url,
-                     headers=GlobalConfig.SLACK_HEADERS, json=data)
+    urllib.request.urlopen(urllib.request.Request(url=response_url,
+                                                  headers=GlobalConfig.SLACK_HEADERS,  auth=auth, method='POST', data=parse.urlencode(data).encode()))
