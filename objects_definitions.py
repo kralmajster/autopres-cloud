@@ -247,7 +247,7 @@ class Analysis(object):
             async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
                 async with session.post(self.proj_params.URL + self.exponea_type, json=body, auth=auth, headers=GlobalConfig.HEADERS, timeout=500) as resp:
                     return await resp.json()
-        else:
+        # else:
             # print("sync")
             # auth = self.proj_params.AUTH_CODE_SYNC
             # response = urllib.request.urlopen(urllib.request.Request(url=self.proj_params.URL + self.exponea_type,
