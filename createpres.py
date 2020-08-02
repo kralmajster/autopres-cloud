@@ -1,5 +1,4 @@
 from __future__ import print_function
-# import requests
 import datetime
 import os
 import time
@@ -11,7 +10,6 @@ import aiohttp
 from config import *
 from objects_definitions import *
 from pprint import pprint
-# from quart import Quart, request, Response
 from requests.auth import HTTPBasicAuth
 from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
