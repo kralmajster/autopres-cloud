@@ -1,4 +1,5 @@
 from __future__ import print_function
+from urllib.parse import parse_qs
 import boto3
 import json
 import asyncio
@@ -9,7 +10,7 @@ lambda_client = boto3.client('lambda')
 
 def handler(event, context):
     print(event)
-    input_form = json.loads(event['body'])
+    input_form = parse_qs(event['body'])
     if input_form is not None:
         keyword = str(input_form['text']) + '.exportcfg'
         command = str(input_form['command']).strip('/')
