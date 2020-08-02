@@ -8,11 +8,11 @@ custom:
   pythonRequirements:
     dockerizePip: true
     # slim: true
-    slimPatternsAppendDefaults: false
-    slimPatterns:
-      - '**/*.py[c|o]'
-      - '**/__pycache__*'
-    strip: true
+    # slimPatternsAppendDefaults: false
+    # slimPatterns:
+    #   - '**/*.py[c|o]'
+    #   - '**/__pycache__*'
+    # strip: true
   globalConstants:
     LAMBDA_ARN_PREFIX: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${self:provider.stage}
     CREATEPRES_LAMBDA_ARN: ${self:custom.globalConstants.LAMBDA_ARN_PREFIX}-createpres
