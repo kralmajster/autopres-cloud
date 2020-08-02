@@ -9,7 +9,7 @@ lambda_client = boto3.client('lambda')
 
 def handler(event, context):
     print(event)
-    input_form = event['body']
+    input_form = json.loads(event['body'])
     if input_form is not None:
         keyword = str(input_form['text']) + '.exportcfg'
         command = str(input_form['command']).strip('/')
