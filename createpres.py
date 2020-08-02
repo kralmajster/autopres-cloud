@@ -10,7 +10,6 @@ import aiohttp
 from config import *
 from objects_definitions import *
 from pprint import pprint
-from requests.auth import HTTPBasicAuth
 from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 from google.cloud import bigquery
