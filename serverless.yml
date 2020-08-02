@@ -7,7 +7,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: true
-    # slim: true
+    slim: true
     # strip: true
   globalConstants:
     LAMBDA_ARN_PREFIX: arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${self:provider.stage}
