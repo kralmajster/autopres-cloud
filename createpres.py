@@ -109,7 +109,7 @@ async def create_pres(fut, input_form):
                 ' ')
 
             proj_params.AUTH_CODE = aiohttp.BasicAuth(auth_name, auth_passwd)
-            proj_params.AUTH_CODE_SYNC = HTTPBasicAuth(auth_name, auth_passwd)
+            # proj_params.AUTH_CODE_SYNC = HTTPBasicAuth(auth_name, auth_passwd)
 
             proj_params.PRESENTATION_ID = convert_link(
                 config_output['valueRanges'][4]['values'][0][0].strip(' '), "d", 1)
