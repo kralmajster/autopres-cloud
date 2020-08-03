@@ -12,11 +12,11 @@ def handler(event, context):
     print(event)
     input_form = parse_qs(event['body'])
     if input_form is not None:
-        keyword = str(input_form['text']) + '.exportcfg'
-        command = str(input_form['command']).strip('/')
-        response_url = str(input_form['response_url'])
-        user_name = str(input_form['user_name'])
-        channel_name = str(input_form['channel_name'])
+        keyword = str(input_form['text']).strip('\'[]') + '.exportcfg'
+        command = str(input_form['command']).strip('\'[]/')
+        response_url = str(input_form['response_url']).strip('\'[]')
+        user_name = str(input_form['user_name']).strip('\'[]')
+        channel_name = str(input_form['channel_name']).strip('\'[]')
 
     if command == "createprescloud":
         command = "createpres"
